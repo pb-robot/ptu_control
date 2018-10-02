@@ -1,0 +1,16 @@
+ptu:
+  # Publish all joint states --------------------------------  
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    Publish_rate: 50
+
+  # Position Controllers ------------------------------------
+  ptu_pan_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: ptu_pan_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0} # seadistada vastavalt riistvarale
+  ptu_tilt_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: ptu_tilt_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0} # seadistada vastavalt riistvarale
+  

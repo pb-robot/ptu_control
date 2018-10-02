@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find ptu_control)/config/ptu_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="ptu_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/phoebe" args="ptu_pan_joint_position_controller ptu_tilt_joint_position_controller joint_state_controller"/>
+
+</launch>
